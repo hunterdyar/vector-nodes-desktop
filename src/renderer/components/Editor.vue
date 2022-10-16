@@ -27,10 +27,10 @@ import GridNode from "./nodes/grid";
 import CopyOnPointsNode from "./nodes/copyOnPoints";
 import Canvas from "./Canvas.vue";
 
-export var PositionSocket = new Socket('Position');
-export var PathSocket = new Socket('Path value');//todo: rename ShapeSocket
-export var NumSocket = new Socket('Number value');
-export var PointsSocket = new Socket('Points value');
+export var PositionSocket = new Socket('Point Value');
+export var PathSocket = new Socket('Shape Value');//todo: rename ShapeSocket
+export var NumSocket = new Socket('Number Value');
+export var PointsSocket = new Socket('Point List Value');
 export var ctx;
 
 export function setContext(context)
@@ -186,5 +186,17 @@ select, input {
   vertical-align: top;
   transform: scale(0.8);
   transform-origin: 50% 0;
+}
+.socket.shape-value {
+  background: #B5D6B2
+}
+.socket.point-value {
+  background: #FFEFBD
+}
+.socket.number-value {
+  background: #5A464C
+}
+.socket.point-list-value {
+  background: #a89455
 }
 </style>

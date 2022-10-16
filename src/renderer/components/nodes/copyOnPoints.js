@@ -39,6 +39,8 @@ class CopyOnPointsNode extends Component
             //engine.findNode...
             //engine.process(foundNode)
 
+            //todo: Nodes are instanced relative to the grid positions. If they don't center 0, then the won't spawn 0. Is this intentional? Option to use centroid of node?
+
             shape = g.copy(s,1,'trs',{x:p[0].x,y:p[0].y},0,{x:0,y:0});;
             shape = g.translate(shape[0],{x:p[0].x,y:p[0].y});
             shape = g.group(shape);
