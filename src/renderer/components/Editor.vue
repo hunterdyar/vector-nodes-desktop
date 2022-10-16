@@ -23,11 +23,14 @@ import NumComponent from "./nodes/number";
 import AddComponent from "./nodes/add";
 import RectComponent from "./nodes/rect";
 import CircleNode from "./nodes/circle";
+import GridNode from "./nodes/grid";
+import CopyOnPointsNode from "./nodes/copyOnPoints";
 import Canvas from "./Canvas.vue";
 
 export var PositionSocket = new Socket('Position');
-export var PathSocket = new Socket('Path value');
+export var PathSocket = new Socket('Path value');//todo: rename ShapeSocket
 export var NumSocket = new Socket('Number value');
+export var PointsSocket = new Socket('Points value');
 export var ctx;
 
 export function setContext(context)
@@ -75,7 +78,7 @@ export default {
   },
   async mounted() {
     var container = this.$refs.nodeEditor;
-    var components = [new NumComponent(), new AddComponent(), new EllipseComponent(), new OutputComponent(), new ColorizeComponent(), new LineComponent(),  new RectComponent(),new PositionComponent(),new CircleNode()];
+    var components = [new NumComponent(), new AddComponent(), new EllipseComponent(), new OutputComponent(), new ColorizeComponent(), new LineComponent(),  new RectComponent(),new PositionComponent(),new CircleNode(), new GridNode(), new CopyOnPointsNode()];
 
     var editor = new NodeEditor('demo@0.1.0', container);
     editor.use(ConnectionPlugin);

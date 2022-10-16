@@ -25,12 +25,20 @@ class OutputComponent extends Component {
             //loop through and draw all of the paths in order.
             //todo: some way to sort? Get incoming node y position?
             inputs['shape'].map(path => {
-                if(ctx) {
-                    //local context;
-                    path.draw(ctx);
+                // if(ctx) {
+                //     //local context;
+                //     path.draw(ctx);
+                // }
+
+                if (path['shapes']) {
+                    console.log("given list of "+path['shapes'].length +" shapes");
+                    path['shapes'].map((s) => {
+                        window.api.draw(s)
+                    });
+                }else{
+                    console.log("direct shape");
+                    window.api.draw(path);
                 }
-                console.log(path);
-                window.api.draw(path);
             });
         }
     }

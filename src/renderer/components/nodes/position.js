@@ -1,9 +1,9 @@
 import {Component, Input, Output} from "rete";
 import {PositionSocket, NumSocket,NumControl} from "../Editor.vue";
+import g from "g.js";
 
-//todo: rename this to Vector
+//todo: rename this to Vector or Point
 //todo: data values are not working
-
 
 // import PosControl from "@/components/PosControl";
 class PositionComponent extends Component {
@@ -27,7 +27,7 @@ class PositionComponent extends Component {
         var x1 = inputs['x'].length?inputs['x'][0]:node.data.x;
         var y1 = inputs['y'].length?inputs['y'][0]:node.data.y;
 
-        outputs['pos'] = {x:x1,y:y1};
+        outputs['pos'] = g.makePoint(x1,y1);
     }
 }
 

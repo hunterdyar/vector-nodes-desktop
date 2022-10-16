@@ -15,7 +15,7 @@ class EllipseComponent extends Component
         var hrad = new Input('hradius',"H Radius",NumSocket);
         var vrad = new Input('vradius',"V Radius",NumSocket);
 
-        var out1 = new Output('shape', "Path", PathSocket);
+        var out1 = new Output('shape', "Shape", PathSocket);
         return node
             .addInput(position)
             .addInput(hrad)

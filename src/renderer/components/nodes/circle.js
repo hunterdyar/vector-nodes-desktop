@@ -14,7 +14,7 @@ class CircleNode extends Component
     builder(node) {
         var position = new Input('pos',"Position",PositionSocket);
         var rad = new Input('radius',"Radius",NumSocket);
-        var out1 = new Output('shape', "Path", PathSocket);
+        var out1 = new Output('shape', "Shape", PathSocket);
         return node
             .addInput(position)
             .addInput(rad)
