@@ -1,5 +1,6 @@
-import {app, BrowserWindow, ipcMain, session} from 'electron';
+import {app, BrowserWindow, ipcMain, session, Menu} from 'electron';
 import {join} from 'path';
+import menuTemplate from "./menuTemplate";
 
 var canvasContext;
 
@@ -57,7 +58,8 @@ function clear(event,force)
 }
 
 app.whenReady().then(() => {
-
+  Menu.setApplicationMenu(menuTemplate);
+  //
   ipcMain.on('draw',draw);
   ipcMain.on('clear',clear);
   createWindow();
@@ -69,7 +71,7 @@ app.whenReady().then(() => {
         'Content-Security-Policy': ['script-src \'self\'']
       }
     })
-  })
+  });
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
@@ -78,6 +80,8 @@ app.whenReady().then(() => {
       createWindow();
     }
   });
+
+
 });
 
 app.on('window-all-closed', function () {

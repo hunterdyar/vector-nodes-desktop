@@ -77,8 +77,25 @@ export default {
     };
   },
   async mounted() {
+
+
     var container = this.$refs.nodeEditor;
     var components = [new NumComponent(), new AddComponent(), new EllipseComponent(), new OutputComponent(), new ColorizeComponent(), new LineComponent(),  new RectComponent(),new PositionComponent(),new CircleNode(), new GridNode(), new CopyOnPointsNode()];
+    var componentMap = {};
+
+    //Quick and easy way to do component lookups.
+    componentMap['num'] = 0;
+    componentMap['add'] = 1;
+    componentMap['ellipse'] = 2;
+    componentMap['output'] = 3;
+    componentMap['colorize'] = 4;
+    componentMap['line'] = 5;
+    componentMap['rect'] = 6;
+    componentMap['pos'] = 7;
+    componentMap['circle'] = 8;
+    componentMap['grid'] = 9;
+    componentMap['copyOnPoints'] = 10;
+
 
     var editor = new NodeEditor('demo@0.1.0', container);
     editor.use(ConnectionPlugin);
@@ -137,6 +154,16 @@ export default {
     editor.view.resize();
     AreaPlugin.zoomAt(editor);
     editor.trigger('process');
+
+    async function addNode(nodeName)
+    {
+      editor.addNode(await components[componentMap[nodeName]].createNode());
+    }
+    //Respond to menu events
+    window.api.addNode((event,n)=>{
+      console.log("menu add "+n);
+      addNode(n);
+    });
   }
 };
 </script>

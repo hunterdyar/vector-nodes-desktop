@@ -9,5 +9,6 @@ contextBridge.exposeInMainWorld('api', {
   clear: (force) => ipcRenderer.send('clear', force),
   onDraw: (callback) => ipcRenderer.on('onDraw', callback),
   onClear: (callback) => ipcRenderer.on('onClear', callback),
+  addNode: (callback) => ipcRenderer.on('addNode',callback)
 });
 
