@@ -25,6 +25,8 @@ import RectComponent from "./nodes/rect";
 import CircleNode from "./nodes/circle";
 import GridNode from "./nodes/grid";
 import CopyOnPointsNode from "./nodes/copyOnPoints";
+import PolygonNode from "./nodes/polygon";
+
 import Canvas from "./Canvas.vue";
 
 export var PositionSocket = new Socket('Point Value');
@@ -80,7 +82,7 @@ export default {
 
 
     var container = this.$refs.nodeEditor;
-    var components = [new NumComponent(), new AddComponent(), new EllipseComponent(), new OutputComponent(), new ColorizeComponent(), new LineComponent(),  new RectComponent(),new PositionComponent(),new CircleNode(), new GridNode(), new CopyOnPointsNode()];
+    var components = [new NumComponent(), new AddComponent(), new EllipseComponent(), new OutputComponent(), new ColorizeComponent(), new LineComponent(),  new RectComponent(),new PositionComponent(),new CircleNode(), new GridNode(), new CopyOnPointsNode(), new PolygonNode()];
     var componentMap = {};
 
     //Quick and easy way to do component lookups.
@@ -95,6 +97,7 @@ export default {
     componentMap['circle'] = 8;
     componentMap['grid'] = 9;
     componentMap['copyOnPoints'] = 10;
+    componentMap['polygon'] = 11;
 
 
     var editor = new NodeEditor('demo@0.1.0', container);

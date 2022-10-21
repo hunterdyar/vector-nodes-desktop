@@ -81,6 +81,11 @@ const menuTemplate = [
                         return focusedWindow.webContents.send('addNode','line');
                     }
                 },
+                {label: 'Polygon',
+                    click(item, focusedWindow) {
+                        return focusedWindow.webContents.send('addNode','polygon');
+                    }
+                },
             ]
             }
         ]
